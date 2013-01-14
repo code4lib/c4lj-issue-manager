@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Issue Manager
-Plugin URI: http://xplus3.net/2008/09/26/issue-manager/
+Plugin URI: https://github.com/tomkeays/issue-manager
 Description: Allows an editor to publish an "issue", which is to say, all pending posts with a given category. Until a category is published, all posts with that category will remain in the pending state.
-Version: 1.4.3
+Version: 1.4.5
 Author: Jonathan Brinley
 Author URI: http://xplus3.net/
 */
@@ -24,8 +24,9 @@ function issue_manager_admin(  ) {
   if ( $unpublished === FALSE ) { $unpublished = array(); update_option( 'im_unpublished_categories', $unpublished ); }
   
   // See if we have GET parameters
-  $cat_ID = isset($_GET['cat_ID'])?$_GET['cat_ID']:null;
+  $cat_ID = isset($_GET['cat'])?$_GET['cat']:null;
   $action = isset($_GET['action'])?$_GET['action']:null;
+  $action2 = isset($_GET['action2'])?$_GET['action2']:null;
     
   if ( $cat_ID ) {
     $cat_ID = (int)$cat_ID;
